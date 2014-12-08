@@ -1,0 +1,28 @@
+﻿body
+{
+    direction: rtl;
+    font-family: 'Segoe UI', sans-serif
+}
+
+span {
+    font-style: italic
+}
+
+td, th
+{
+    width: 130px;
+    padding: 5px;
+}
+
+td{
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+th{
+    text-align: center;
+}
+
+.votes {
+    width: 75px;
+}
