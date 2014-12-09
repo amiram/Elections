@@ -1,4 +1,4 @@
 Elections
 =========
 
-Israeli elections analyzer
+Israeli elections analyser
