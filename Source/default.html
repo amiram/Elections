@@ -71,9 +71,9 @@
                 <td>{{party.spareMandates}}</td>
                 <td>{{party.totalMandates()}}</td>
                 <td>{{party.votesPerMandate()}}</td>
-                <td>{{party.votesToLoseMandate}}</td>
+                <td>{{party.votesToLoseMandate}}<span class="glyphicon glyphicon-minus" ng-click="party.votes = party.votes - party.votesToLoseMandate;calcAll()" ng-show="party.votesToLoseMandate > 0" /></td></td>
                 <td>{{party.partyEarningMandate.partyName}}</td>
-                <td>{{party.missingVotesForOneMandate}}</td>
+                <td>{{party.missingVotesForOneMandate}}<span class="glyphicon glyphicon-plus" ng-click="party.votes = party.votes + party.missingVotesForOneMandate;calcAll()" ng-show="party.missingVotesForOneMandate > 0" /></td>
                 <td>{{party.partyLosingMandate.partyName}}</td>
             </tr>
         </tbody>
