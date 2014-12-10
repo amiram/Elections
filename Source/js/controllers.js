@@ -1,5 +1,9 @@
 ﻿var electionsApp = angular.module('electionsApp', []);
 
+var log = function (text) {
+    console.log(text);
+};
+
 var party = (function () {
 
     function party(_name, _votes) {
@@ -44,6 +48,7 @@ var partyConnection = (function () {
         this.party2 = _party2;
         this.party1.connected = true;
         this.party2.connected = true;
+        this.partyName = _party1.partyName + " - " + _party2.partyName;
         this.reset();
     }
     partyConnection.prototype.votesMethod = function () {
@@ -147,7 +152,11 @@ var calcMandates = function (_parties, _partyConnections) {
         totalVotes += p.votes;
     }
 
+    log("Total votes: " + totalVotes);
+
     blockPercent = Math.round(totalVotes * 0.02);
+    log("Block percent: " + blockPercent + " according to percent of " + (0.02 * 100));
+
     var totalVotesAboveBlock = 0;
 
     for (var i = 0; i < _parties.length; i++) {
@@ -155,10 +164,18 @@ var calcMandates = function (_parties, _partyConnections) {
         p.aboveBlockPercent = p.votes >= blockPercent;
         if (p.aboveBlockPercent) {
             totalVotesAboveBlock += p.votes;
+            log("Party " + p.partyName + " above block percent with " + p.votes + " votes");
+        }
+        else {
+            log("Party " + p.partyName + " below block percent with " + p.votes + " votes");
         }
     }
 
+    log("Total votes above block percent: " + totalVotesAboveBlock);
+
     var generalMeasure = Math.round(totalVotesAboveBlock / 120);
+    log("General measure: " + generalMeasure);
+
     var totalMandatesByVotes = 0;
 
     for (var i = 0; i < _parties.length; i++) {
@@ -170,6 +187,8 @@ var calcMandates = function (_parties, _partyConnections) {
         }
     }
 
+    log("Total mandates by votes: " + totalMandatesByVotes);
+
     var partiesForSpare = [];
 
     var applicablePartyConnections = [];
@@ -180,10 +199,12 @@ var calcMandates = function (_parties, _partyConnections) {
         if (!pi.party1.aboveBlockPercent || !pi.party2.aboveBlockPercent) {
             pi.party1.connected = false;
             pi.party2.connected = false;
+            log("Connection between " + pi.party1.partyName + " and " + pi.party2.partyName + " is not valid");
         } else {
             pi.mandatesByVotes = pi.party1.mandatesByVotes + pi.party2.mandatesByVotes;
             partiesForSpare.push(pi);
             applicablePartyConnections.push(pi);
+            log("Connection between " + pi.party1.partyName + " and " + pi.party2.partyName + " is valid");
         }
     }
 
@@ -197,6 +218,8 @@ var calcMandates = function (_parties, _partyConnections) {
     }
 
     var spareMandates = 120 - totalMandatesByVotes;
+
+    log("Total spare mandates: " + spareMandates);
 
     for (var i = 0; i < spareMandates; i++) {
         var maxPartyMeasure = 0;
@@ -213,10 +236,14 @@ var calcMandates = function (_parties, _partyConnections) {
             }
         }
         partyWithMaxMeasure.spareMandates++;
+        log("Party " + partyWithMaxMeasure.partyName + " got a spare mandate. Measure: " + maxPartyMeasure);
     }
 
     for (var i = 0; i < _partyConnections.length; i++) {
         var pi = _partyConnections[i];
+        if (pi.spareMandates == 0)
+            continue;
+
         var connectionMeasure = Math.floor(pi.votesMethod() / (pi.mandatesByVotes + pi.spareMandates));
         var party1Mandates = Math.floor(pi.party1.votes / connectionMeasure);
         var party2Mandates = Math.floor(pi.party2.votes / connectionMeasure);
