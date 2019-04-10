@@ -26,3 +26,7 @@ th{
 .votes {
     width: 75px;
 }
+
+.glyphicon-minus, .glyphicon-plus {
+    cursor: pointer;
+}
