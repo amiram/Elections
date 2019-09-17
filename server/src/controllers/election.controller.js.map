@@ -1,0 +1,1 @@
+{"version":3,"file":"election.controller.js","sourceRoot":"","sources":["election.controller.ts"],"names":[],"mappings":";;AACA,+EAAyD;AAElD,KAAK,UAAU,cAAc,CAAC,QAA+B;IAChE,MAAM,EAAE,GAAG,IAAI,iCAAQ,CAAC,QAAQ,CAAC,CAAC;IAClC,MAAM,OAAO,GAAG,MAAM,EAAE,CAAC,IAAI,EAAE,CAAC;IAChC,OAAO,OAAO,CAAC,MAAM,EAAE,CAAC;AAC5B,CAAC;AAJD,wCAIC"}
