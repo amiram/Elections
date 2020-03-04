@@ -1,7 +1,10 @@
 ﻿body
 {
     direction: rtl;
-    font-family: 'Segoe UI', sans-serif
+    font-family: 'Segoe UI', sans-serif;
+    max-width: 1280px;
+    margin: 3rem auto;
+    background-color: #f1f1f1;
 }
 
 span {
@@ -30,3 +33,10 @@ th{
 .glyphicon-minus, .glyphicon-plus {
     cursor: pointer;
 }
+
+table {
+    background-color: white;
+    box-shadow: 0 0 12px 1px rgba(0,0,0,0.1);
+}
+
+
