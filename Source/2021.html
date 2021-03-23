@@ -79,7 +79,7 @@
         <tbody>
             <tr ng-repeat="party in parties" ng-class="{danger : party.totalMandates() == 0, success : party.totalMandates() > 0}">
                 <td>{{party.partyName}}</td>
-                <td><input type="number" ng-model="party.votes" ng-change="calcAll()" ng-model-options="{ updateOn: 'blur' }" ng-keyup="cancel($event)" class="form-control" /></td>
+                <td><input type="number" ng-model="party.votes" ng-change="calcAll()" ng-model-options="{ updateOn: 'blur' }" ng-keyup="cancel($event)" class="form-control form-control-sm" /></td>
                 <td>{{party.mandatesByVotes}}</td>
                 <td>{{party.mandatesByConnection}}</td>
                 <td>{{party.spareMandates}}</td>
