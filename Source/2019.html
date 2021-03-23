@@ -6,78 +6,88 @@
     <script src="Scripts/angular.js"></script>
     <script src="js/parties2019.js?ver=8"></script>
     <script src="js/controllers.js?ver=8"></script>
-    <link rel="stylesheet" href="Content/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="Content/elections.css" type="text/css" />
+    <link rel="stylesheet" href="Content/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="Content/elections.css" type="text/css"/>
 </head>
+<!--<h3><a href="http://bit.ly/2lU3zMS" target="_blank">לתוצאות של הבחירות האחרונות ב- 2019</a></h3>-->
 <body ng-controller="ElectionsCtrl">
-    <label>קולות:</label>
-    <span>{{calcResults.totalVotes}}</span>
-    <br />
-    <label>אחוז החסימה:</label>
-    <span>{{calcResults.blockPercent}}</span>
-    <br />
-    <label>קולות מעל אחוז החסימה:</label>
-    <span>{{calcResults.totalVotesAboveBlock}}</span>
-    <br />
-    <label>מודד כללי:</label>
-    <span>{{calcResults.generalMeasure}}</span>
-    <br />
-    <label>מנדטים לפני חלוקת עודפים:</label>
-    <span>{{calcResults.totalMandatesByVotes}}</span>
-    <br />
-    <label>סה"כ מנדטים:</label>
-    <span>{{calcResults.totalMandates}}</span>
-    <h3>הסכמי עודפים</h3>
-    <table class="table table-striped table-hover table-bordered table-condensed">
-        <thead>
-            <tr>
-                <th>מפלגות</th>
-                <th>קולות</th>
-                <th>מנדטים מקולות</th>
-                <th>מנדטים מעודפים</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="pc in partyConnections" ng-class="{danger : !pc.party1.aboveBlockPercent || !pc.party2.aboveBlockPercent, success : pc.party1.aboveBlockPercent && pc.party2.aboveBlockPercent}">
-                <td>{{pc.party1.partyName}} - {{pc.party2.partyName}}</td>
-                <td>{{pc.party1.votes + pc.party2.votes}}</td>
-                <td>{{pc.mandatesByVotes}}</td>
-                <td>{{pc.spareMandates}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <h3>מפלגות</h3>
-    <table class="table table-striped table-hover table-bordered table-condensed">
-        <thead>
-            <tr>
-                <th>מפלגה</th>
-                <th>קולות</th>
-                <th>מנדטים מקולות</th>
-                <th>מנדטים מהסכמי עודפים</th>
-                <th>מנדטים מעודפים</th>
-                <th>סך הכל מנדטים</th>
-                <th>עלות מנדט</th>
-                <th>קולות לאיבוד מנדט</th>
-                <th>מרויחה מאיבוד מנדט</th>
-                <th>קולות לתוספת מנדט</th>
-                <th>מפסידה מרווח מנדט</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="party in parties" ng-class="{danger : party.totalMandates() == 0, success : party.totalMandates() > 0}">
-                <td>{{party.partyName}}</td>
-                <td><input type="number" ng-model="party.votes" ng-change="calcAll()" ng-model-options="{ updateOn: 'blur' }" ng-keyup="cancel($event)" class="form-control" /></td>
-                <td>{{party.mandatesByVotes}}</td>
-                <td>{{party.mandatesByConnection}}</td>
-                <td>{{party.spareMandates}}</td>
-                <td>{{party.totalMandates()}}</td>
-                <td>{{party.votesPerMandate()}}</td>
-                <td>{{party.votesToLoseMandate}}<span class="glyphicon glyphicon-minus" ng-click="party.votes = party.votes - party.votesToLoseMandate;calcAll()" ng-show="party.votesToLoseMandate > 0" /></td></td>
-                <td>{{party.partyEarningMandate.partyName}}</td>
-                <td>{{party.missingVotesForOneMandate}}<span class="glyphicon glyphicon-plus" ng-click="party.votes = party.votes + party.missingVotesForOneMandate;calcAll()" ng-show="party.missingVotesForOneMandate > 0" /></td>
-                <td>{{party.partyLosingMandate.partyName}}</td>
-            </tr>
-        </tbody>
-    </table>
+<h3><a href="2020.html" target="_blank">לתוצאות של הבחירות האחרונות ב- 2020</a></h3>
+<label>קולות:</label>
+<span>{{calcResults.totalVotes}}</span>
+<br/>
+<label>אחוז החסימה:</label>
+<span>{{calcResults.blockPercent}}</span>
+<br/>
+<label>קולות מעל אחוז החסימה:</label>
+<span>{{calcResults.totalVotesAboveBlock}}</span>
+<br/>
+<label>מודד כללי:</label>
+<span>{{calcResults.generalMeasure}}</span>
+<br/>
+<label>מנדטים לפני חלוקת עודפים:</label>
+<span>{{calcResults.totalMandatesByVotes}}</span>
+<br/>
+<label>סה"כ מנדטים:</label>
+<span>{{calcResults.totalMandates}}</span>
+<h3>הסכמי עודפים</h3>
+<table class="table table-striped table-hover table-bordered table-condensed">
+    <thead>
+    <tr>
+        <th>מפלגות</th>
+        <th>קולות</th>
+        <th>מנדטים מקולות</th>
+        <th>מנדטים מעודפים</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="pc in partyConnections"
+        ng-class="{danger : !pc.party1.aboveBlockPercent || !pc.party2.aboveBlockPercent, success : pc.party1.aboveBlockPercent && pc.party2.aboveBlockPercent}">
+        <td>{{pc.party1.partyName}} - {{pc.party2.partyName}}</td>
+        <td>{{pc.party1.votes + pc.party2.votes}}</td>
+        <td>{{pc.mandatesByVotes}}</td>
+        <td>{{pc.spareMandates}}</td>
+    </tr>
+    </tbody>
+</table>
+<h3>מפלגות</h3>
+<table class="table table-striped table-hover table-bordered table-condensed">
+    <thead>
+    <tr>
+        <th>מפלגה</th>
+        <th>קולות</th>
+        <th>מנדטים מקולות</th>
+        <th>מנדטים מהסכמי עודפים</th>
+        <th>מנדטים מעודפים</th>
+        <th>סך הכל מנדטים</th>
+        <th>עלות מנדט</th>
+        <th>קולות לאיבוד מנדט</th>
+        <th>מרויחה מאיבוד מנדט</th>
+        <th>קולות לתוספת מנדט</th>
+        <th>מפסידה מרווח מנדט</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="party in parties"
+        ng-class="{danger : party.totalMandates() == 0, success : party.totalMandates() > 0}">
+        <td>{{party.partyName}}</td>
+        <td><input type="number" ng-model="party.votes" ng-change="calcAll()" ng-model-options="{ updateOn: 'blur' }"
+            ng-keyup="cancel($event)" class="form-control"/></td>
+        <td>{{party.mandatesByVotes}}</td>
+        <td>{{party.mandatesByConnection}}</td>
+        <td>{{party.spareMandates}}</td>
+        <td>{{party.totalMandates()}}</td>
+        <td>{{party.votesPerMandate()}}</td>
+        <td>{{party.votesToLoseMandate}}<span class="glyphicon glyphicon-minus"
+            ng-click="party.votes = party.votes - party.votesToLoseMandate;calcAll()"
+            ng-show="party.votesToLoseMandate > 0"/></td>
+        </td>
+        <td>{{party.partyEarningMandate.partyName}}</td>
+        <td>{{party.missingVotesForOneMandate}}<span class="glyphicon glyphicon-plus"
+            ng-click="party.votes = party.votes + party.missingVotesForOneMandate;calcAll()"
+            ng-show="party.missingVotesForOneMandate > 0"/></td>
+        <td>{{party.partyLosingMandate.partyName}}</td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

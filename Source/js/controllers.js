@@ -311,6 +311,8 @@ var calcAll = function ($scope) {
     primaryResult.totalMandates = 0;
     primaryResult.parties.forEach(function (party) { primaryResult.totalMandates += party.totalMandates(); });
 
+    primaryResult.parties.sort((p1, p2) => p2.votes - p1.votes);
+
     return primaryResult;
 };
 
