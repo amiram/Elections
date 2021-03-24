@@ -1,42 +1,44 @@
 var getParties = function () {
 
-  var likud = new party('ליכוד', 26441);
-  var yeshatid = new party('יש עתיד', 9307);
-  var shas = new party('שס', 7434);
-  var betenu = new party('ישראל ביתנו', 6610);
-  var yamina = new party('ימינה', 6066);
-  var tziyonutdatit = new party('הציונות הדתית', 6000);
-  var kachollavan = new party('כחול לבן', 4969);
-  var avoda = new party('עבודה', 4732);
-  var yahadut = new party('יהדות התורה', 4604);
-  var meshutefet = new party('הרשימה המשותפת', 4043);
-  var tikva = new party('תקוה חדשה', 3780);
-  var aravitmeuhedet = new party('ערבית מאוחדת', 3703);
-  var meretz = new party('מרצ', 2876);
-  var kakalitchadasha = new party('הכלכלית החדשה זליכה', 635);
-  var rapeh = new party('רפא', 459);
-  var anachnu = new party('אנחנו', 0);
-  var ani = new party('אני ואתה', 0);
-  var brit = new party('ברית השותפות', 0);
-  var daam = new party('דעם כלכלה ירוקה', 0);
-  var israelim = new party('הישראלים', 0);
-  var lev = new party('הלב היהודי', 0);
-  var mapatz = new party('המפץ החברתי גמלאים', 0);
-  var piratim = new party('הפיראטים', 0);
-  var tikvaleshinuy = new party('תקוה לשינוי', 0);
-  var kvod = new party('כבוד האדם', 0);
-  var manhigut = new party('מנהיגות חברתית', 0);
-  var maan = new party('מען', 0);
-  var gush = new party('הגוש התנכי', 0);
-  var amshalem = new party('עם שלם', 0);
-  var shema = new party('שמע', 0);
-  var tzedek = new party('משפט צדק', 0);
-  var biltiefshari = new party('בלתי אפשרי', 0);
-  var seder = new party('סדר חדש', 0);
-  var olamchadash = new party('עולם חדש', 0);
-  var atzmenu = new party('עצמנו', 0);
-  var zomet = new party('צומת', 0);
-  var kama = new party('קמ"ה', 0);
+  var likud = new party('ליכוד', 931886);
+  var yeshatid = new party('יש עתיד', 535329);
+  var shas = new party('שס', 281931);
+  var kachollavan = new party('כחול לבן', 255263);
+  var yamina = new party('ימינה', 226438);
+  var avoda = new party('עבודה', 226005);
+  var yahadut = new party('יהדות התורה', 225806);
+  var betenu = new party('ישראל ביתנו', 213666);
+  var meshutefet = new party('הרשימה המשותפת', 192801);
+  var tziyonutdatit = new party('הציונות הדתית', 191158);
+  var tikva = new party('תקוה חדשה', 180640);
+  var meretz = new party('מרצ', 174824);
+  var aravitmeuhedet = new party('ערבית מאוחדת', 154965);
+  var kakalitchadasha = new party('הכלכלית החדשה זליכה', 29909);
+  var rapeh = new party('רפא', 15512);
+  var ani = new party('אני ואתה', 1232);
+  var tikvaleshinuy = new party('תקוה לשינוי', 1011);
+  var piratim = new party('הפיראטים', 848);
+  var lev = new party('הלב היהודי', 753);
+  var mapatz = new party('המפץ החברתי גמלאים', 711);
+  var kama = new party('קמ"ה', 643);
+  var tzedek = new party('משפט צדק', 610);
+  var zomet = new party('צומת', 604);
+  var amshalem = new party('עם שלם', 496);
+  var seder = new party('סדר חדש', 446);
+  var brit = new party('ברית השותפות', 404);
+  var gush = new party('הגוש התנכי', 374);
+  var olamchadash = new party('עולם חדש', 357);
+  var biltiefshari = new party('בלתי אפשרי', 349);
+  var israelim = new party('הישראלים', 346);
+  var atzmenu = new party('עצמנו', 345);
+  var anachnu = new party('אנחנו', 314);
+  var daam = new party('דעם כלכלה ירוקה', 311);
+  var shema = new party('שמע', 311);
+  var manhigut = new party('מנהיגות חברתית', 222);
+  var maan = new party('מען', 203);
+  var chetz = new party('חץ', 187);
+  var kvod = new party('כבוד האדם', 159);
+  var demokratia = new party('דמוקרטיה', 26);
 
   var parties = [
     likud,
@@ -76,6 +78,8 @@ var getParties = function () {
     atzmenu,
     zomet,
     rapeh,
+    chetz,
+    demokratia,
   ];
 
   var partyConnections = [
