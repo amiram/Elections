@@ -187,6 +187,7 @@ var calcMandates = function (_parties, _partyConnections) {
     result.totalVotes = totalVotes;
     result.blockPercent = blockPercent;
     result.totalVotesAboveBlock = totalVotesAboveBlock;
+    result.totalVotesBelowBlock = totalVotes - totalVotesAboveBlock;
     result.generalMeasure = generalMeasure;
     result.totalMandatesByVotes = totalMandatesByVotes;
     return result;
