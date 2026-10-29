@@ -36,8 +36,8 @@ var getParties = function () {
     var bible = new party('גה"ת - גוש התנ"כי', 412);
     var security = new party('ביטחון אישי', 481);
     var covenant = new party('ברית עולם לגאולת ישראל', 255);
-    var brother = new party('תנועת אחי תנועתו של הרב יורם אברג\'ל זצ"ל', 53);
-    var bluewhite = new party('כחול לבן בראשות בני גנץ', 43);
+    var brother = new party('תנועת אחי תנועתו של הרב יורם אברג\'ל זצ"ל', 0);
+    var bluewhite = new party('כחול לבן בראשות בני גנץ', 0);
 
     var parties = [
         likud,
